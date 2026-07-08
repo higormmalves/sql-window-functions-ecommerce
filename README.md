@@ -25,8 +25,6 @@ A partir da execução das queries, algumas descobertas de negócios se destacam
 * **Crescimento Acelerado:** A categoria *Electronics* apresenta a taxa mais rápida de crescimento na receita acumulada.
 * **Intervalos de Compra:** A categoria *Home* possui as maiores lacunas (gaps) de valores entre pedidos sequenciais de um mesmo cliente.
 
-Para uma análise mais profunda das descobertas, consulte o arquivo `insights.md`.
-
 ## 📂 Estrutura do Repositório
 * `README.md`: Visão geral do projeto e contexto de negócios.
 * `schema.sql`: Scripts para criação de tabelas e inserção de dados mockados.
@@ -58,8 +56,6 @@ This project is structured around four core analytical milestones, documented in
 Based on the query results, several business discoveries stand out:
 * **Accelerated Growth:** The *Electronics* category yields the fastest cumulative revenue growth rate.
 * **Purchase Gaps:** The *Home* category exhibits the highest variance (gaps) in order amounts between sequential purchases from the same customer.
-
-For a deeper dive into these findings, please refer to the `insights.md` file.
 
 ## 📂 Repository Structure
 * `README.md`: Project overview and business context.

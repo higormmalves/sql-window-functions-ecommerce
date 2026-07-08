@@ -31,7 +31,6 @@ Para uma análise mais profunda das descobertas, consulte o arquivo `insights.md
 * `README.md`: Visão geral do projeto e contexto de negócios.
 * `schema.sql`: Scripts para criação de tabelas e inserção de dados mockados.
 * `window_functions.sql`: Queries SQL separadas por marcos, com comentários detalhando a lógica aplicada.
-* `insights.md`: Documentação das descobertas analíticas e conclusões de negócios.
 
 # 📊 [EN] E-Commerce Analytics: Window Functions
 
@@ -66,4 +65,3 @@ For a deeper dive into these findings, please refer to the `insights.md` file.
 * `README.md`: Project overview and business context.
 * `schema.sql`: Raw DDL and DML scripts for easy reproduction.
 * `window_functions.sql`: SQL queries broken down by milestones, with comments explaining the applied business logic.
-* `insights.md`: Documentation of analytical discoveries and business takeaways.

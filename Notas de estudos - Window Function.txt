@@ -1,0 +1,66 @@
+--	GROUP	BY:	colapsa	as	linhas,	perde	o	detalhe
+-- Retorna uma linha por cliente
+SELECT customer_id,	SUM(amount)	AS total_gasto
+FROM payment
+GROUP BY customer_id
+ORDER BY customer_id;
+
+-- WINDOW FUNCTION: mantém todas as linhas originais
+--Acumula o total gasto por cliente a cada compra
+SELECT customer_id,	payment_id, DATE(payment_date), amount, SUM(amount)	
+OVER( 
+	PARTITION BY customer_id 
+	ORDER BY  payment_date
+) AS total_gasto
+FROM payment;
+
+--Funções de Ranking
+--ROW_NUMBER()
+SELECT title, length,
+	ROW_NUMBER() OVER(
+		ORDER BY length DESC
+	)
+FROM film;
+
+--RANK()
+SELECT title, length,
+	RANK() OVER(
+		ORDER BY length DESC
+	)
+FROM film;
+
+--DENSE_RANK()
+SELECT title, length,
+	DENSE_RANK() OVER(
+		ORDER BY length DESC
+	)
+FROM film;
+
+--Ranking + PARTITION BY
+SELECT
+	f.title,
+    c.name,
+	f.replacement_cost,
+	DENSE_RANK() OVER(
+		PARTITION BY c.name
+		ORDER BY f.replacement_cost
+	)
+FROM film_category AS fc
+JOIN film AS f
+    ON fc.film_id = f.film_id
+JOIN category AS c
+    ON fc.category_id = c.category_id;
+
+--NTILE(n)
+SELECT
+    c.name,
+	SUM(f.replacement_cost) AS total_replacement_cost,
+	NTILE(4) OVER(
+		ORDER BY SUM(f.replacement_cost) 
+	) AS quartil
+FROM film_category AS fc
+JOIN film AS f
+    ON fc.film_id = f.film_id
+JOIN category AS c
+    ON fc.category_id = c.category_id
+GROUP BY c.name;
